@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset=utf-8 />
+<title>stack</title>
+
+</head>
+<body>
+  <form>
+    <h1>Interactive stack</h1>
+    <input id="pushItem" type="text" placeholder="item to push" />
+    <input type="button" value="push()" onclick="insert()" />
+	<input type="button" value="pop()" onclick="del()" />
+	<input type="button" value="clear()" onclick="clearStack()" 
+	<input type="button" value="clear()" onclick="clearStack()"/>
+	<input type="button" value="length()" onclick="stackLength()"/>
+	<input type="button" value="peek()" onclick="peekIn()"/>
+	
+  </form>
+  <div id="display"></div>
+    <div id="display1"></div>
+	 <div id="display2"></div>
+	 <div id="display3"></div>
+   <script >
+   
+var dataStore=[];
+
+   var pushItem  = document.getElementById("pushItem");
+   var messageBox  = document.getElementById("display");
+   var messageBox1  = document.getElementById("display1");
+   var messageBox2  = document.getElementById("display2");
+   var messageBox3  = document.getElementById("display3");
+  
+   
+   function insert () {
+ dataStore.push( pushItem.value );
+  clearAndShow();
+  }
+  
+  function stackLength(){
+  var x= dataStore.length;
+  messageBox2.innerHTML = "";
+  messageBox2.innerHTML += "<b>length of stack is:  </b>  "+x;
+  }
+  
+  
+  function peekIn(){
+  var x= dataStore.length-1
+  messageBox3.innerHTML = "";
+  messageBox3.innerHTML += "<b>item at the top of stack is: </b> \" "+dataStore[x]+" \"";
+  }
+  
+  function del (){
+ 
+	  dataStore.pop();
+	  delAndShow();
+  
+  }
+
+  
+  function clearStack(){
+	  dataStore.length=0;
+	  delAndShow();
+  }
+  
+  
+	 
+function clearAndShow () {
+  // Clear the entry field
+  pushItem.value = "";
+ // Show the value
+  messageBox.innerHTML = "";
+  messageBox.innerHTML += "<b>content in stack: </b> " +dataStore.join(" _ ") + "<br/>";
+ }
+
+ 
+ function delAndShow(){
+	 messageBox.innerHTML = "";
+	 messageBox.innerHTML += "<b>content in stack:  </b> " +dataStore.join(" _ ") + "<br/>";
+	 
+	}
+	 </script>
+
+</body>
+</html>
+
+
+
